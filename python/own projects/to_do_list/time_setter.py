@@ -2,15 +2,22 @@ import time
 import datetime
 import pygame
 import json
+import threading
+stop_alarm = True
 
 def alarm():
-    is_running=True
+    global stop_alarm
+
+    #is_running=True
     sound_file="x.mp3"
     with open("task_list.json", "r") as file:
             todo = json.load(file)
-    while is_running:
+    while stop_alarm:
         current_time=datetime.datetime.now().strftime("%H:%M:%S")
         print(current_time)
+        
+
+        
         for key,value in todo.items():
             if value == current_time:
                 print(key)
@@ -18,6 +25,10 @@ def alarm():
                 pygame.mixer.music.load(sound_file)
                 pygame.mixer.music.play()
                 while pygame.mixer.music.get_busy():
+                    user_pressed_next=input("space to stop")
+                    if user_pressed_next=="" or user_pressed_next==" ":
+                        pygame.mixer.music.stop()
+                        break
                     time.sleep(1)
                 is_running=False
         time.sleep(1)
