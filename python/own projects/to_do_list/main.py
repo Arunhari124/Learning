@@ -24,6 +24,7 @@ while True:
         
         no_task()
         time.sleep(1)
+        
 
     else:
         print("Available tasks\n")
