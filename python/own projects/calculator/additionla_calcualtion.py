@@ -6,6 +6,9 @@ class additional():
    
         else:
             return n * additional.factorial(n-1)
+    def exponent(n,p):
+        return n**p
+        
     
     
     

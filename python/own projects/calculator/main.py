@@ -13,6 +13,10 @@ if __name__=="__main__":
     if calc_method=="1":
         n=int(input("Number for factorial"))
         print(additional.factorial(n))
+    elif calc_method=="2":
+        n=float(input("Enter the number:"))
+        p=float(input("Enter the power:"))
+        print(additional.exponent(n,p))
     else:
 
         calc.calcu()
