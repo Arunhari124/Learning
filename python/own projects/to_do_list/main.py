@@ -21,14 +21,18 @@ while True:
     except Exception:
         todo = {}
     if not todo:
+        
         no_task()
+        time.sleep(1)
 
     else:
         print("Available tasks\n")
+        time.sleep(1)
 
         for key, value in todo.items():
             print(key, value)
             print()
+            time.sleep(1)
     
     new_task = input(
         "Enter N for new task creation \n T for show all list \n Enter A to continue \n D to delete old entries:"

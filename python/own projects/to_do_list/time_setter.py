@@ -2,24 +2,24 @@ import time
 import datetime
 import pygame
 import json
-import threading
-stop_alarm = True
+import keyboard
 
 def alarm():
-    global stop_alarm
-
-    #is_running=True
+    is_running=True
     sound_file="x.mp3"
     with open("task_list.json", "r") as file:
             todo = json.load(file)
-    while stop_alarm:
+    while is_running:
         current_time=datetime.datetime.now().strftime("%H:%M:%S")
         print(current_time)
+        if keyboard.is_pressed("space"):
+                    break
+            
         
-
         
         for key,value in todo.items():
             if value == current_time:
+                
                 print(key)
                 pygame.mixer.init()
                 pygame.mixer.music.load(sound_file)
