@@ -1,6 +1,7 @@
 
 import json
 from password_encrypter import password_encrypter
+from id_generator import id_gen
 def account_creating():
     import json
     import time
@@ -8,25 +9,36 @@ def account_creating():
     name=input("Enter your name:")
     mobile_number=input("Enter the mobile number: ")
     address=input("Enter your address: ")
-    time.sleep(2)
+    time.sleep(1)
     password=input("Enter your password ")
     password1=input("Enter your password ")
-    id=1
+    
     if password==password1:
         time.sleep(1)
-        encrypted_password=password_encrypter(password)
-        l1=[name,mobile_number,address,encrypted_password]
-        user_info[id]=l1
-        with open("user_account.json", "w") as file:
+        id=str(id_gen())
+        is_running=True
+        while is_running:
+            if id in user_info:
+                id=str(id_gen())
+                is_running=False
+            else:
+                is_running=False
+            
+            encrypted_password=password_encrypter(password)
+            l1=[name,mobile_number,address,encrypted_password]
+            user_info[id]=l1
+            
+            print(f"YOUR USER_ID={id}")
+            with open("user_account.json", "w") as file:
                     json.dump(user_info, file, indent=4)
         
 try:
         
-        with open("user_accounts.json", "r") as file:
+        with open("user_account.json", "r") as file:
             user_info = json.load(file)           
 except Exception:
         user_info={}
         
 
-#account_creating()
+account_creating()
         
