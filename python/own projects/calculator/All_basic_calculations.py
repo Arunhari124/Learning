@@ -20,10 +20,16 @@ class Calculator:
     
 class calc(Calculator):
     def calcu():
-        while True:
+        import time
+        is_running=True
+
+        while is_running:
             num1 = float(input("Number="))
-            oper=input("_____+_____\n_____-_____\n_____x_____\n_____/____\n__=")
+            time.sleep(0.45)
+            oper=input("_____+_____\n_____-_____\n_____x_____\n_____/____\n__  ")
+            time.sleep(0.45)
             num2 = float(input("Number="))
+            time.sleep(0.45)
     
             if oper=="+":
                 calculator = Calculator(num1, num2)
@@ -40,11 +46,12 @@ class calc(Calculator):
 
             print(total)
 
-            while True:
+            while is_running:
              
-                oper=input("_____+_____\n_____-_____\n_____x_____\n_____/_____\n__=")
+                oper=input("_____+_____\n_____-_____\n_____x_____\n_____/_____\n__o to stop:")
+                time.sleep(0.45)
                 num1 = float(input("Number="))
-                #num2 = int(input("Number="))
+                time.sleep(0.45)
         
                 if oper=="+":
                     calculator = Calculator(num1, total)
@@ -58,10 +65,15 @@ class calc(Calculator):
                     calculator = Calculator(num1, total)
                     total =  calculator.multi()
                     print(total)
-                else:
+                elif oper=="/":
                     calculator = Calculator(num1, total)
                     total = calculator.divi()
-                    print(total)  
+                    print(total)
+                else:
+                    is_running=False
+                    
+                    
+                      
     
 
         
