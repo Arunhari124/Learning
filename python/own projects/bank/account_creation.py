@@ -2,7 +2,7 @@
 import json
 from password_encrypter import password_encrypter
 from id_generator import id_gen
-from deposit import deposit
+from initial_deposit import initial_deposit
 def account_creating():
     import json
     import time
@@ -26,7 +26,7 @@ def account_creating():
                 is_running=False
             
             encrypted_password=password_encrypter(password)
-            balance=deposit()
+            balance=initial_deposit()
             l1=[name,mobile_number,address,encrypted_password,balance]
             user_info[id]=l1
             
