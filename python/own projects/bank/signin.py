@@ -32,4 +32,3 @@ try:
 except Exception:
         
        user_info={}
-sign_in()
