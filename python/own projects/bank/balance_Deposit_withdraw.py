@@ -5,6 +5,9 @@ def deposit(id):
         balance=user_info[id][4]
         money=float(input("Enter the money to deposit(in digits) :"))
         balance +=money
+        user_info[id][4]=balance
+        with open("user_account.json", "w") as file:
+                    json.dump(user_info, file, indent=4)
 def balance(id):
         balance=user_info[id][4]
         print(balance)
@@ -12,6 +15,9 @@ def withdraw(id):
         balance=user_info[id][4]
         money=float(input("Enter the money to withdraw(in digits) :"))
         balance -=money
+        user_info[id][4]=balance
+        with open("user_account.json", "w") as file:
+                    json.dump(user_info, file, indent=4)
         
         
         
