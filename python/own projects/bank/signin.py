@@ -5,7 +5,7 @@ def sign_in():
     
         
         
-        id=input("Enter your id ")
+        id=input("Enter your id:")
         if id in user_info:
             password=input("ENter your password ")
             encrypted_password=password_encrypter(password)
