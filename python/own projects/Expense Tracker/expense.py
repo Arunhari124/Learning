@@ -2,6 +2,8 @@
 import json
 def expense():
     amount=float(input("ENter your monthly income: "))
+    x= amount * (25/100)
+    y= amount * (75/100)
     
     is_running=True 
     while is_running:
@@ -20,12 +22,14 @@ def expense():
     print(expene)  
     s=sum(expene.values())
     if s>amount:
-        print("losss")
-    elif s == amount:
-        print("tie")
+        print("you spend more than you have")
+    elif s == amount or s > y :
+        print("try to save something next time")
+    elif s == x or s < x:
+        print("good joh you saved more than 25'%' of your amount")
     else:
-        print("WON")
-    print(s)
+        print("okay")
+        
     
 
 
