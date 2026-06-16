@@ -1,6 +1,4 @@
+import numpy as np
 def id_gen():
-    import random
-    x=random.randint(10000000,99999999)
-    return x
-    
-#id_gen()
+    rng=np.random.default_rng()
+    return rng.integers(10000,99999)
